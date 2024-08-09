@@ -1,0 +1,28 @@
+**/.git
+**/.gitignore
+**/.vscode
+**/.idea
+**/__pycache__
+
+**/.pytest_cache
+**/.coverage
+**/htmlcov
+**/coverage
+
+**/Dockerfile
+**/README.md
+**/docker-compose.yml
+
+**/.DS_Store
+**/.env
+**/.aws
+**/.ssh
+
+# Virtual environment
+**/venv
+**/env
+
+**/.mypy_cache
+
+# Other
+**/wiki

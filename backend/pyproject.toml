@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "budget-api"
+version = "0.1.0"
+description = ""
+authors = ["MateDawid <mateusiakdawid@gmail.com>"]
+
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.10"
+djangorestframework = "^3.15.2"
+dynaconf = {extras = ["yaml"], version = "^3.2.0"}
+django-extensions = "^3.2.3"
+drf-yasg = "^1.21.7"
+psycopg2-binary = "2.9.6"
+drf-nested-routers = "^0.93.5"
+django-filter = "^24.2"
+django-debug-toolbar = "^4.4.2"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.3.3"
+pytest = "^7.4.0"
+pytest-cov = "^4.1.0"
+pytest-django = "^4.5.2"
+pytest-factoryboy = "^2.5.1"
+
+[tool.pytest.ini_options]
+minversion = "7.4.0"
+testpaths = [
+    "tests"
+]
+DJANGO_SETTINGS_MODULE = "app_config.settings"
+pythonpath  = [
+    "src",
+    "tests"
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

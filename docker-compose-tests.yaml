@@ -5,13 +5,13 @@ services:
     build:
       context: .
       dockerfile: ./backend/docker/Dockerfile
-      target: release-image
+      target: test-image
       args:
         - DEV=${DEV}
-    image: backend:release-image
+    image: backend:test-image
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./backend/src:/backend/src
+      - ./backend/tests:/backend/tests
       - ./backend/.secrets.yaml:/backend/.secrets.yaml
     ports:
       - 8000:8000
@@ -24,12 +24,6 @@ services:
       - DYNACONF_DATABASE__PASSWORD=${DB_PASSWORD}
     depends_on:
       - db
-    healthcheck:
-      test: curl --fail http://localhost:8000/api/healthcheck || exit 1
-      interval: 10s
-      retries: 5
-      start_period: 30s
-      timeout: 10s
   db:
     image: postgres:15
     ports:
